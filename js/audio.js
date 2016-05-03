@@ -9,7 +9,9 @@
                        {sound:'sounds/loop3.mp3', name:'houseLoop'},
                        {sound:'sounds/crackel.mp3', name:'crackel'},
                        {sound:'sounds/scratch_2.mp3', name:'scratch'},
-                       {sound:'sounds/vocal2.mp3', name:'vocal'}
+                       {sound:'sounds/vocal2.mp3', name:'vocal'},
+                      {sound:'sounds/cowbell.WAV', name:'vocal'},
+                       {sound:'sounds/sBellShort.mp3', name:'vocal'}
                 ];
 
 

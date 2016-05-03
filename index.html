@@ -7,7 +7,10 @@
             body{
                 touch-action:none;
                background: linear-gradient(to bottom, #050404 0%,#2d2928 36%,#0d1114 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                }
+
+                background-blend-mode: color-dodge;
+                
+                                 }
                 @-ms-viewport{
                     width: 1536px;
                 }
@@ -134,15 +137,24 @@ input[type=range]::-ms-thumb {
     
 }
 #fxSelection div{
-    padding: 10px;
+    padding: 5px;
     color: white;
+    border:1px solid rgba(155,155,155,.4);
+    margin: 5px;
     
 }
 #fxSelection div a, #fxSelection div a:visited{
     color: white;
     text-decoration: none;
-    font-family: Courier New, Courier, monospace
+    font-family: Courier New, Courier, monospace;
+    width: 100%;
+    height:100px;
+    display: block;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
+
 
 #beatBox > div{
     display:flex;
@@ -173,6 +185,10 @@ input[type=range]::-ms-thumb {
     height:300px;
 }
 
+#fxSelection .active {
+    background-color: rgba(22, 120, 200, .2)
+}
+
             </style>
         </head>
  <body>
@@ -190,11 +206,10 @@ input[type=range]::-ms-thumb {
                 <div class="box"></div>
             </div>
             <div class="section"> 
-                <img src="images/CRL-SLEIGHBELLS.jpg" />
+                <img src="images/CRL-SLEIGHBELLS.png" id="sBell" />
             </div>   
             <div class="section" id="bongs"> 
-               <div class="bong"></div>
-                <div class="bong bong-small"></div>              
+               <img src="images/cowbell.png" id="cowBell" />            
             </div>        
          </div>
          <div id="controls">
@@ -205,10 +220,10 @@ input[type=range]::-ms-thumb {
              <div id="bottomControls">
                  <div id="fxSelection">
 
-                     <div data-menuanchor="firstPage"><a href="#firstPage">Turn Table</a></div>
-                     <div data-menuanchor="secondPage"><a href="#secondPage">Beats</a></div>
-                     <div data-menuanchor="thirdPage"><a href="#thirdPage">Sleigh Bells</a></div>
-                     <div data-menuanchor="fourthPage"><a href="#fourthPage">tom tom</a></div>
+                     <div data-menuanchor="firstPage"><a href="#firstPage" style="background-image:url('images/icon1.png')"></a></div>
+                     <div data-menuanchor="secondPage"><a href="#secondPage" style="background-image:url('images/icon2.png')"></a></div>
+                     <div data-menuanchor="thirdPage"><a href="#thirdPage" style="background-image:url('images/icon3.png')"></a></div>
+                     <div data-menuanchor="fourthPage"><a href="#fourthPage" style="background-image:url('images/icon4.png')"></a></div>
                  </div>
                  <div id="fxControl">
                    <div class="slider">
@@ -218,7 +233,7 @@ input[type=range]::-ms-thumb {
                  </div>
                  <div id="trackControl">
                    <div class="slider ">
-                       <div class="label">Scratch</div>
+                       <div id="insLabel" class="label">Scratch</div>
  
                         <input id="tableVol" class="slide small" type="range" min="-1" max="1" step=".01" value="0" />
                     </div>
@@ -256,7 +271,11 @@ input[type=range]::-ms-thumb {
         normalScrollElements: '#record',
         touchSensitivity: '90',
         anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
-        menu: '#fxSelection'
+        menu: '#fxSelection',
+             afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){switchFun(anchorLink, index, slideAnchor, slideIndex)}
+             
+             
+    
     });
 });
 </script>

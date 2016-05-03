@@ -121,3 +121,30 @@
          
          
          
+         
+         document.getElementById('cowBell').addEventListener('pointerdown', function(){
+             
+             
+             
+             playSound(4)
+             
+         });         
+         document.getElementById('sBell').addEventListener('pointerdown', function(){
+             
+             
+             
+             playSound(5)
+             
+         });
+         
+         
+         
+         //When each section is in view the mixer should be labeled for and play that insturment.
+         
+         var insLabel = document.getElementById('insLabel');
+         
+         var switchFun = function(anchorLink, index, slideAnchor, slideIndex){
+             
+             
+             insLabel.innerHTML = sounds[index].name;
+         };
