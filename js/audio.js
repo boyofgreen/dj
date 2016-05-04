@@ -13,8 +13,20 @@
                       {sound:'sounds/cowbell.WAV', name:'vocal'},
                        {sound:'sounds/sBellShort.mp3', name:'vocal'}
                 ];
+                
+                
+                var showContent = function(){
+                    
+                    $('.modalDialog').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        $('#container').addClass('animated fadeIn')
+                    });
+                    $('.modalDialog').addClass('animated fadeOut')
 
+    
 
+                    }
+
+                var loadedFiles = 0;     
 
                 function loadSounds(index) {
                     var request = new XMLHttpRequest();
@@ -25,6 +37,9 @@
                     request.onload = function (e) {
                         context.decodeAudioData(request.response, function (buffer) {
                             sounds[index].buffer = buffer;
+                              loadedFiles++
+                            if(loadedFiles === sounds.length) showContent()
+                          
                         }, function(er) { console.log(er) });
                     }
                     request.send();
@@ -54,4 +69,7 @@
                     sounds[index].source.start(start);                           // play the source now
                     // note: on older systems, may have to use deprecated noteOn(time);
                 }
+
+
+
 
