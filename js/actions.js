@@ -81,6 +81,7 @@
          
          var playScratch = setInterval(function(){
              
+             if(!sounds[3]) return
          if(isScratching === true && currentPlay === false) {
              playSound(2);
              sounds[2].source.loop = true;
