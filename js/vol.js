@@ -38,9 +38,15 @@ loopVol.addEventListener('change', function(e){
 
 tableVol.addEventListener('change', function(e){
     var volsetting = e.srcElement.value;
-         if(sounds[2].gainNode){
-         sounds[2].gainNode.gain.value = volsetting;
-         sounds[2].saveVolume = volsetting;
+         if(sounds[currentInstrument].gainNode){
+         sounds[currentInstrument].gainNode.gain.value = volsetting;
+         sounds[currentInstrument].saveVolume = volsetting;
+         
+         if(currentInstrument === 2){
+          sounds[3].gainNode.gain.value = volsetting;
+         sounds[3].saveVolume = volsetting;
+             
+         }
      }  
         
     

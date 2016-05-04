@@ -1,3 +1,6 @@
+  var currentInstrument = 2; //sets the inst to volumne control
+ 
+ 
   var record = document.getElementById('record');
          var angle = 0;
          var saveY = 0; 
@@ -74,6 +77,7 @@
          var currentPlay = false;
          var currentScrtchTime = 0;
         
+        
          record.addEventListener('pointermove', function(){
              isScratching = true;
            //  currentScratchTime = sounds[2].source.currentTime;
@@ -99,8 +103,8 @@
              currentPlay = false;
              
             if(sounds[3].gainNode){
-                sounds[3].gainNode.gain.value = tableVol.value;
-                sounds[3].saveVolume = tableVol.value;
+                sounds[3].gainNode.gain.value = sounds[3].saveVolume;
+                sounds[3].saveVolume = sounds[2].saveVolume;
             }  
              
          }
@@ -149,19 +153,24 @@
              
              switch(nextIndex) {
                 case 1:
-                    insName = "Scratch"
+                    insName = "Scratch";
+                    currentInstrument = 2;
                     break;
                 case 2:
                     insName = 'Beats'
+                    currentInstrument = 2;
                     break;
                 case 3:
                     insName = 'Jingles'
+                    currentInstrument = 5;
                     break;
                 case 4:
-                    insName = "Cow Bell"
+                    insName = "Cow Bell";
+                    currentInstrument = 4;
                     break;
                 default:
                      insName = 'Scratch'
+                     currentInstrument = 2;
  } 
  
 

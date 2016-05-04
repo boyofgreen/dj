@@ -10,8 +10,8 @@
                        {sound:'sounds/crackel.mp3', name:'crackel'},
                        {sound:'sounds/scratch_2.mp3', name:'scratch'},
                        {sound:'sounds/vocal2.mp3', name:'vocal'},
-                      {sound:'sounds/cowbell.WAV', name:'vocal'},
-                       {sound:'sounds/sBellShort.mp3', name:'vocal'}
+                      {sound:'sounds/cowbell.WAV', name:'cow bell'},
+                       {sound:'sounds/sBellShort.mp3', name:'jingle'}
                 ];
                 
                 
