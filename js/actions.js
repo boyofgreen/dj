@@ -142,10 +142,36 @@
          
          //When each section is in view the mixer should be labeled for and play that insturment.
          
-         var insLabel = document.getElementById('insLabel');
+         var insLabel = document.getElementById('lText');
          
-         var switchFun = function(anchorLink, index, slideAnchor, slideIndex){
+         var switchFun = function(index ,  nextIndex ,  direction ){
+             var insName = '';
              
+             switch(nextIndex) {
+                case 1:
+                    insName = "Scratch"
+                    break;
+                case 2:
+                    insName = 'Beats'
+                    break;
+                case 3:
+                    insName = 'Jingles'
+                    break;
+                case 4:
+                    insName = "Cow Bell"
+                    break;
+                default:
+                     insName = 'Scratch'
+ } 
+ 
+
+   $('#lText').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        insLabel.innerHTML = insName;
+                        
+                        $('#lText').removeClass('fadeOutDown ')
+                        $('#lText').addClass('animated fadeInDown')
+                    });
+                     $('#lText').removeClass('fadeInDown')
+                    $('#lText').addClass('animated fadeOutDown ')
              
-             insLabel.innerHTML = sounds[index].name;
          };
