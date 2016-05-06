@@ -1,10 +1,12 @@
 
 {
-  "start_url": "http://www.hotbeats.com:8080/",
+  "start_url": "/index.html",
   "short_name": "Hot Beats",
-  "scope":"http://www.hotbeats.com:8080/",
+  "scope":"http://www.hotbeats.com",
+  "mjs_extended_scope":["http://btdj.azurewebsites.net"],
   "mjs_api_access": [
-      {   "match": "http://www.hotbeats.com:8080/", "apiAccess":"all", "platform": "windows10"  }
+      {   "match": "http://www.hotbeats.com", "apiAccess":"all", "platform": "windows10"  },
+      {   "match": "http://btdj.azurewebsites.net", "apiAccess":"all", "platform": "windows10"  }
   ],
   "name": "Hot Beats",
   "theme_color": "#000000"
