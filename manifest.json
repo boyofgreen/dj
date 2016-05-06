@@ -1,0 +1,11 @@
+
+{
+  "start_url": "http://www.hotbeats.com:8080/",
+  "short_name": "Hot Beats",
+  "scope":"http://www.hotbeats.com:8080/",
+  "mjs_api_access": [
+      {   "match": "http://www.hotbeats.com:8080/", "apiAccess":"all", "platform": "windows10"  }
+  ],
+  "name": "Hot Beats",
+  "theme_color": "#000000"
+}
