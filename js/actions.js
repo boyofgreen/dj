@@ -22,11 +22,11 @@
              clearInterval(spin)
              
          })
-          record.addEventListener('pointercancel', function(){
+        //   record.addEventListener('pointercancel', function(){
 
-             clearInterval(spin)
+        //      clearInterval(spin)
              
-         })
+        //  })
          
          record.addEventListener('pointermove', function(e){
                 if (e.buttons === 0) {
@@ -46,16 +46,26 @@
          })
          
          record.addEventListener('pointerup', function(){
-             
+           clearInterval(spin)
            spin = setInterval(spinAction, 1000/60)
              
              console.log('fire pointer up event and set a spin off')
          })
          
+            record.addEventListener('pointerleave', function(){
+           clearInterval(spin)
+           spin = setInterval(spinAction, 1000/60)
+             
+             console.log('fire pointer up event and set a spin off')
+         })   
+      
+      
          
          ///button to start the music
          var start = document.getElementById('start');
          var isRunning = false;
+         //set the vol for 2 and 3
+         sounds[2].saveVolume = document.querySelector("#tableVol").value;
          start.addEventListener('pointerdown', function(){
              if(isRunning === false){
                  playSound(0)
@@ -85,7 +95,7 @@
          
          var playScratch = setInterval(function(){
              
-             if(!sounds[3]) return
+           //  if(!sounds[3]) return
          if(isScratching === true && currentPlay === false) {
              playSound(2);
              sounds[2].source.loop = true;
@@ -93,7 +103,7 @@
              //drop volume of singer
           if(sounds[3].gainNode){
          sounds[3].gainNode.gain.value = -1;
-         sounds[3].saveVolume = -1;
+         sounds[3].saveVolume = sounds[2].saveVolume;
      }  
             
          }
@@ -102,9 +112,9 @@
              if(sounds[2].source) sounds[2].source.stop();
              currentPlay = false;
              
-            if(sounds[3].gainNode){
+            if(sounds[3].gainNode && sounds[2].saveVolume){
                 sounds[3].gainNode.gain.value = sounds[3].saveVolume;
-                sounds[3].saveVolume = sounds[2].saveVolume;
+               // sounds[3].saveVolume = sounds[2].saveVolume;
             }  
              
          }

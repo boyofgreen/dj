@@ -9,5 +9,23 @@
       {   "match": "http://btdj.azurewebsites.net", "apiAccess":"all", "platform": "windows10"  }
   ],
   "name": "Hot Beats",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
+    "icons": [
+    {
+      "src": "images/logo.scale-100.png",
+      "sizes": "150x150"
+    },
+        {
+      "src": "images/storelogo.scale-100.png",
+      "sizes": "50x50"
+    },
+        {
+      "src": "images/smalllogo.scale-100.png",
+      "sizes": "44x44"
+    },
+          {
+      "src": "images/splashscreen.scale-100.png",
+      "sizes": "620x300"
+    }
+  ]
 }
