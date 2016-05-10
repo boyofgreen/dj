@@ -200,8 +200,12 @@
          
          window.addEventListener('devicemotion', function(e){
              
-             if(pastZ - e.accelerationIncludingGravity.z > 2)  console.log('shake it')
+             if(pastZ - e.accelerationIncludingGravity.z > 2){
+                 
+                 playSound(5)
+                 console.log('shaking')
+             }  
              
-            
+            pastZ = e.accelerationIncludingGravity.z;
         
     }, false);
