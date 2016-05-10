@@ -194,3 +194,14 @@
                     $('#lText').addClass('animated fadeOutDown ')
              
          };
+         
+         
+         var pastZ = 0;
+         
+         window.addEventListener('devicemotion', function(e){
+             
+             if(pastZ - e.accelerationIncludingGravity.z > 2)  console.log('shake it')
+             
+            
+        
+    }, false);
