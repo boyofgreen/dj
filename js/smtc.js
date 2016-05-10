@@ -7,8 +7,8 @@ if (typeof Windows !== 'undefined' && Windows.Media.SystemMediaTransportControls
   systemMediaControls.addEventListener("buttonpressed", systemMediaControlsButtonPressed, false);
   systemMediaControls.isPlayEnabled = true;
   systemMediaControls.isPauseEnabled = true;
-  systemMediaControls.isChannelUpEnabled = false;
-  systemMediaControls.isChannelDownEnabled = false;
+  systemMediaControls.isNextEnabled  = true;
+  systemMediaControls.isPreviousEnabled  = true;
   systemMediaControls.playbackStatus = Windows.Media.MediaPlaybackStatus.closed;
   
   
@@ -30,6 +30,20 @@ if (typeof Windows !== 'undefined' && Windows.Media.SystemMediaTransportControls
  //make sure we reflect play or pause with the hardware controls
  function systemMediaControlsButtonPressed(eventIn) {
   var mediaButton = Windows.Media.SystemMediaTransportControlsButton;
+  
+  if(eventIn.button === 6){
+      $.fn.fullpage.moveSectionUp();
+      return
+      
+  }
+  
+    if(eventIn.button === 7){
+      
+      $.fn.fullpage.moveSectionDown();
+      return
+  }
+  
+  
  if(isRunning === false){
                  playSound(0)
                  isRunning = true;
