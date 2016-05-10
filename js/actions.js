@@ -199,7 +199,7 @@
          var pastZ = 0;
          
          window.addEventListener('devicemotion', function(e){
-             if(!window.location.Match(thirdPage)) return
+             if(!window.location.hash.match('third')) return
              if(pastZ - e.accelerationIncludingGravity.z > 4){
                  
                  playSound(5)
