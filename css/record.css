@@ -27,6 +27,6 @@
   overflow: hidden;
   width: 850px; height: 700px;
   margin: 20px;
-  border-radius: 10px;
-  background: rgba(155,155,155,.2);
+  xborder-radius: 10px;
+  xbackground: rgba(155,155,155,.2);
 }
