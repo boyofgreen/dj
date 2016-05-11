@@ -7,11 +7,12 @@
    
          
          var spinAction = function(){
-            
+            requestAnimationFrame(function(){ 
              record.style.transform = 'rotate('+angle+'deg)';
              angle++
              
              if(angle >= 360) angle = 0;
+            });
          };
     
          var spin = setInterval(spinAction, 1000/60)
@@ -32,10 +33,11 @@
                 if (e.buttons === 0) {
                 return;
                 }
-            
-             var offsetY = -(e.offsetY - saveY)/5;
+            requestAnimationFrame(function(){
+                            var offsetY = -(e.offsetY - saveY)/5;
              
              angle +=offsetY;
+             
             record.style.transform = 'rotate('+angle+'deg)';
              
              
@@ -43,6 +45,10 @@
              
              
               saveY = e.offsetY;
+                
+                
+            })
+ 
          })
          
          record.addEventListener('pointerup', function(){
@@ -163,23 +169,23 @@
              
              switch(nextIndex) {
                 case 1:
-                    insName = "Scratch";
+                    insName = "SCRATCH";
                     currentInstrument = 2;
                     break;
                 case 2:
-                    insName = 'Beats'
+                    insName = 'BEATS'
                     currentInstrument = 2;
                     break;
                 case 3:
-                    insName = 'Jingles'
+                    insName = 'JINGLES'
                     currentInstrument = 5;
                     break;
                 case 4:
-                    insName = "Cow Bell";
+                    insName = "COW BELL";
                     currentInstrument = 4;
                     break;
                 default:
-                     insName = 'Scratch'
+                     insName = 'SCRATCH'
                      currentInstrument = 2;
  } 
  

@@ -13,15 +13,15 @@ input[type=range]::-ms-fill-lower {
   background-image: url(/images/sliderbg.png);
   background-repeat: repeat;
   background-color: #B5B5E2;
-  height: 75px;
+  height: 72px;
 
 
   
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
 }
 input[type=range]::-ms-fill-upper {
-  background: #1C1C23;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: black;
+  height: 72px;
 }
 
 input[type=range]::-ms-thumb {
@@ -29,7 +29,7 @@ input[type=range]::-ms-thumb {
   border: 1px solid #B5B5E2;
   height: 30px;
   width: 20px;
-  border-radius: 5px;
+
   background: #1C1C23;
   cursor: pointer;
 }
