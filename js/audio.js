@@ -16,15 +16,28 @@
                 
                 
                 var showContent = function(){
+                   
+                    document.querySelector('#goButton').style.display = 'block';
+           
+    
+
+                    };
+                   $('.modalDialog a').one('pointerdown', function(e){
+                        
+                        console.log('selecting');
+                        $(this).addClass('active');
+                        
+                    })
                     
-                    $('.modalDialog').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                       $('.modalDialog button').one('pointerdown', function(){
+                                    $('.modalDialog').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $('#container').addClass('animated fadeIn')
                     });
                     $('.modalDialog').addClass('animated fadeOut')
+                                                document.querySelector('.modalDialog').style.pointerEvents = 'none'
 
-    
-
-                    }
+                       })
+                    
 
                 var loadedFiles = 0;     
 
@@ -65,7 +78,10 @@
                         sounds[index].source.connect(sounds[index].gainNode);
                         sounds[index].gainNode.connect(context.destination);
     
-                   if(sounds[index].saveVolume) sounds[index].gainNode.gain.value = sounds[index].saveVolume;
+                   if(sounds[index].saveVolume) {sounds[index].gainNode.gain.value = sounds[index].saveVolume;
+                   }else{
+                       sounds[index].gainNode.gain.value = -.6;
+                   }
                     sounds[index].source.start(start);                           // play the source now
                     // note: on older systems, may have to use deprecated noteOn(time);
                 }

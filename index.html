@@ -107,7 +107,21 @@ body #fxSelection {
             </style>
         </head>
  <body>
-     <div class="modalDialog"><img src="images/splashscreen.scale-100.png" class="beatIcon animated infinite jello " /></div>
+     <div class="modalDialog">
+         <p class="chooseText">choose your instrument</p> 
+      <div class="choiceContainer">  
+          
+            <div ><a href="#" style="background-image:url('images/icon1.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon2.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon3.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon4.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon1.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon2.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon3.png')"></a></div>
+            <div ><a href="#" style="background-image:url('images/icon4.png')"></a></div>
+            <button id="goButton">go</button>
+      </div>   
+     </div>
      <div id="container" class=" animated">
          <div id="romeControl" class="animated">
              <select >
@@ -153,21 +167,21 @@ body #fxSelection {
                  <div id="fxControl">
                    <div class="slider">
                        <div class="label">TRACK</div>
-                        <input id="loopVol" class="slide small" type="range" min="-1" max="1" step=".01" value="0" />
+                        <input id="loopVol" class="slide small" type="range" min="-1" max="0" step=".01" value="-.6" />
                     </div>
                  </div>
                  <div id="trackControl">
                    <div class="slider ">
                        <div id="insLabel" class="label"><div id="lText">SCRATCH</div></div>
  
-                        <input id="tableVol" class="slide small" type="range" min="-1" max="1" step=".01" value="-.05" />
+                        <input id="tableVol" class="slide small" type="range" min="-1" max="0" step=".01" value="-.6" />
                     </div>
                  </div>
                  <div id="masterControl">
                  <div class="slider">
                        <div class="label">MASTER</div>
  
-                        <input id="masterVol" class="slide" type="range" min="-1" max="1" step=".01" value="-.05" />
+                        <input id="masterVol" class="slide" type="range" min="-1" max="0" step=".01" value="-.6" />
                  </div>
                  </div>
              </div>
@@ -204,6 +218,13 @@ body #fxSelection {
     
     });
 });
+
+                //    document.querySelector('.choiceContainer').addEventListener('pointerdown', function(e){
+                        
+                //         console.log('selecting');
+                //       //  $(this).addClass('active');
+                        
+                //     })
 </script>
      
  </body>
