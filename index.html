@@ -222,12 +222,40 @@ body #fxSelection p a, body #fxSelection p a:visited{
     });
 });
 
-                //    document.querySelector('.choiceContainer').addEventListener('pointerdown', function(e){
-                        
-                //         console.log('selecting');
-                //       //  $(this).addClass('active');
-                        
-                //     })
+
+var moveToPlay = function(){
+    
+    document.querySelector('.chooseText').style.display = 'none';
+     document.querySelector('.choiceContainer').style.display = 'none';   
+     
+        $('.modalDialog').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $('#container').addClass('animated fadeIn')
+        });
+        $('.modalDialog').addClass('animated fadeOut')
+        document.querySelector('.modalDialog').style.pointerEvents = 'none'
+
+    
+}
+
+if(window.location.href.match('rome')){
+              var showGo = false;
+              if(!localStorage.showGo){
+                  
+                 showGo = false 
+              }else {
+                showGo = localStorage.showGo;
+              }   
+              
+              if(showGo === "false"){
+                  
+                  console.log(showGo);
+                  localStorage.showGo = true;
+              }else{
+                  console.log(showGo)
+                  moveToPlay();
+                  localStorage.showGo = false;
+              }
+}
 </script>
      
  </body>
