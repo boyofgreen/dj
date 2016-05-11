@@ -1,0 +1,64 @@
+@media screen and (min-width: 480px) {
+    @-ms-viewport{
+        width: 1536px;        
+    }
+}
+
+
+
+    body{
+    touch-action:none;
+    background:#1C1C23;
+    margin: 24px;
+    
+    font-family: 'Exo 2', sans-serif;
+    }
+    
+    #topControls, #bottomControls{
+    display: flex;
+    flex-direction: row;
+    
+}
+#topControls{width:650px;}
+
+
+#controls{
+    display: flex;
+    flex-direction: column;
+    flex-grow:2;
+}
+#timerBox{
+    width:100%;
+    color: white;
+    font-size: 5em;
+    font-family: 'Exo 2', sans-serif;
+    border: 1px solid #B5B5E2;
+    text-align: center;
+    margin:24px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:140px;
+    font-weight: 200;
+    
+}
+
+#bottomControls > div{
+    border: 1px solid #B5B5E2;;
+    border-radius: 6px;
+height:500px; flex-grow:1; margin: 12px;
+width: 90px;}
+
+
+#start{ 
+    width:100px; 
+    height: 100px; 
+    color: #B5B5E2;
+    background-image: url(images/play.png);
+    background-size: 50%;
+    background-position: 25px center;
+    background-repeat: no-repeat;
+}
+#container{ display:flex; width:100%; overflow:hidden;}
+

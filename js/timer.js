@@ -12,9 +12,9 @@ var startTimer = function(){
     
     if(tempTime < 10) tempTime = '0'+tempTime;
     
+    tempTime = '00:'+ tempTime;
     
-    
-    timer.innerHTML = tempTime.replace(".", ":"); ;
+    timer.innerHTML = tempTime.replace(".", ":"); 
     
     
 };

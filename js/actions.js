@@ -112,7 +112,7 @@
              if(sounds[2].source) sounds[2].source.stop();
              currentPlay = false;
              
-            if(sounds[3].gainNode && sounds[2].saveVolume){
+            if(sounds[3].gainNode && sounds[3].saveVolume){
                 sounds[3].gainNode.gain.value = sounds[3].saveVolume;
                // sounds[3].saveVolume = sounds[2].saveVolume;
             }  
