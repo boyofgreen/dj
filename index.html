@@ -93,8 +93,17 @@ body #fxSelection p a, body #fxSelection p a:visited{
 }
 #container{opacity: 0}
 #lText { text-align: center; margin:auto; width: 80px}
-#romeControl{ position: absolute;  bottom: 30px; left: 30px; z-index: 1000; opacity: 0;}
-
+#romeControl{ position: absolute;  bottom: 30px; left: 30px; z-index: 1000; xopacity: 0;}
+#romeButton{
+    xborder: 1px solid #B5B5E2;
+    height: 50px;
+    width: 50px;
+    border-radius: 6px;
+    background-image: url(/images/phone.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 @media screen and (max-width: 480px) {
     #controls{display: none}
@@ -106,12 +115,19 @@ body #fxSelection p a, body #fxSelection p a:visited{
     
     #record { width: 400px; height: 400px}
     #record:after{ width: 64px; height: 64px; margin: -32px}
-
+.choiceContainer {width: 400px}
 }
             </style>
         </head>
  <body>
      <div class="modalDialog">
+                  <p class="chooseText2">choose your instrument</p> 
+      <div class="choiceContainer2">  
+          
+            <div ><a href="#" style="">My Windows Phone</a></div>
+            <div ><a href="#" style="">Android 6P</a></div>
+
+         </div>
          <p class="chooseText">choose your instrument</p> 
       <div class="choiceContainer">  
           
@@ -124,11 +140,13 @@ body #fxSelection p a, body #fxSelection p a:visited{
             <div ><a href="#" style="background-image:url('images/icon3.png')"></a></div>
             <div ><a href="#" style="background-image:url('images/icon4.png')"></a></div>
             <button id="goButton">go</button>
+            <div id="callButton" style="border: 1px solid red; color: white; display:none">call</div>
       </div>   
      </div>
      <div id="container" class=" animated">
          <div id="romeControl" class="animated">
-             <select >
+             <div id="romeButton"> </div>
+             <select style="display: none" >
                  <option>send to...</option>
                  <option>Windows Phone</option>
                  <option>Android Phone</option>
@@ -260,22 +278,63 @@ if(window.location.href.match('rome')){
 
 
 
-///jq post to launch app
-// $("button").click(function(){
-//   $.ajax({
-//             type:"POST",
-//             beforeSend: function (request)
-//             {
-//                 request.setRequestHeader("Authority", authorizationToken);
-//             },
-//             url: "entities",
-//             data: "json=test",
-//             processData: false,
-//             success: function(msg) {
-//                console.log('success');
-//             }
-//     });
-// }); 
+//jq post to launch app
+$("#callButton").one('click', function(){
+  $.ajax({
+            type:"POST",
+            beforeSend: function (request)
+            {
+                request.setRequestHeader("appid", 'MTcxNmEwNzQtOTNkZi00ODU2LWJmYmMtZjA0ZGI5MzkwOGRkX3I3cWJhMjJ2ZnBldmchQXBw');
+                 request.setRequestHeader("package", 'MTcxNmEwNzQtOTNkZi00ODU2LWJmYmMtZjA0ZGI5MzkwOGRkXzEuMC4wLjBfbmV1dHJhbF9fcjdxYmEyMnZmcGV2Zw%3D%3D');
+            },
+            url: "https://10.104.148.97/api/taskmanager/app?appid=MTcxNmEwNzQtOTNkZi00ODU2LWJmYmMtZjA0ZGI5MzkwOGRkX3I3cWJhMjJ2ZnBldmchQXBw&package=MTcxNmEwNzQtOTNkZi00ODU2LWJmYmMtZjA0ZGI5MzkwOGRkXzEuMC4wLjBfbmV1dHJhbF9fcjdxYmEyMnZmcGV2Zw%3D%3D",
+            data: "json=test",
+            processData: false,
+            success: function(msg) {
+               console.log('success');
+            }
+    });
+}); 
+
+
+$("#romeButton").click(function(){
+    
+        document.querySelector('.chooseText').style.display = 'none';
+     document.querySelector('.choiceContainer').style.display = 'none';   
+     
+        $('.modalDialog').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $('.modalDialog').removeClass('animated fadeIn')
+        $('#container').addClass('animated fadeOut')
+        });
+          $('.modalDialog').removeClass('animated fadeOut')
+        $('.modalDialog').addClass('animated fadeIn')
+        document.querySelector('.modalDialog').style.pointerEvents = '';
+        
+        document.querySelector('.chooseText2').style.display = 'flex';
+        document.querySelector('.choiceContainer2').style.display = 'flex';
+
+    
+});
+
+                   $('.choiceContainer2 a').one('pointerdown', function(e){
+                        
+                            setTimeout(function(){
+                                
+                    $('.modalDialog').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $('#container').removeClass('animated fadeOut')
+                $('#container').addClass('animated fadeIn')
+                });
+                $('.modalDialog').removeClass('animated fadeIn')
+                $('.modalDialog').addClass('animated fadeOut')
+                document.querySelector('.modalDialog').style.pointerEvents = 'none'; 
+                                
+                                
+                            }, 1000)
+
+
+
+                        
+                    })
 
 </script>
      
