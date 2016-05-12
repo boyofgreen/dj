@@ -79,6 +79,10 @@ if (typeof Windows !== 'undefined' && Windows.Media.SystemMediaTransportControls
  }         
   
   
+Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar.backgroundColor = {a:255, r:28, g:28, b:35};
+Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar.buttonBackgroundColor = {a:255, r:28, g:28, b:35 };
+Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar.buttonForegroundColor = Windows.UI.Colors.white;
+Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar.foregroundColor = Windows.UI.Colors.white;
 
   
   
