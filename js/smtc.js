@@ -88,5 +88,23 @@ Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar.foregroun
   
   
   
+  /**here we are generating a back button in the title bar of the app.  it doesn't change the page at all as it is above (or below on phone) the app itself.  This is a Windows API ***/
+//here we show how we add a listener that goes back through the history stack when the button is hit	  
+				  
+				  
+		//this is the windows apis for the back button as well as an event handleere for it
+    var systemNavigationManager = Windows.UI.Core.SystemNavigationManager.getForCurrentView();
+		var systemNavigation = Windows.UI.Core.SystemNavigationManager.getForCurrentView();
+        
+        if(history.length < 1) systemNavigation.appViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.collapsed;
+        systemNavigationManager.addEventListener("backrequested", handleSystemNavigationEvent.bind(this));
+				  
+		// function to handle the system Navigation Event
+		// function handleSystemNavigationEvent(args) {
+		// 	history.back()
+		//    args.handled = true;
+		// }
+	
+  
   
 }

@@ -271,7 +271,7 @@ if(window.location.href.match('rome')){
               }   
               
               if(showGo === "false"){
-                  
+                  moveToPlay(); //add in for both cases, but leaving logic if we want to move back
                   console.log(showGo);
                   localStorage.showGo = true;
               }else{
