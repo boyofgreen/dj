@@ -107,4 +107,18 @@ Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar.foregroun
 	
   
   
+  
+}
+
+
+if(typeof Windows !== 'undefined'){
+ 
+ 
+ 
+ 
+    
+
+    
+    setTimeout(function(){ $('#romeControl').addClass('fadeIn')}, 4000)
+    
 }

@@ -25,17 +25,7 @@ var appServiceConnection = new Windows.ApplicationModel.AppService.AppServiceCon
 }
 
 
-if(typeof Windows !== 'undefined'){
- 
- 
- 
- 
-    
 
-    
-    setTimeout(function(){ $('#romeControl').addClass('fadeIn')}, 4000)
-    
-}
 
 
 var GenerateList = function(a){             };
